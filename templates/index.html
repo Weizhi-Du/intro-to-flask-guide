@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flask Modular Web App</title>
+    <link rel="stylesheet" href="/static/css/styles.css">
+    <script>
+        async function handleSubmit(event) {
+            event.preventDefault();
+            const name = document.getElementById("name").value;
+
+            // Send POST request to Flask backend
+            const response = await fetch("/api/process", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ name }),
+            });
+
+            // Parse and display response
+            const result = await response.json();
+            document.getElementById("response").innerHTML = `
+                <p><strong>Original Name:</strong> ${result.original}</p>
+                <p><strong>Reversed Name:</strong> ${result.reversed}</p>
+                <p><strong>Vowel Count:</strong> ${result.vowel_count}</p>
+                <p><strong>Message:</strong> ${result.message}</p>
+            `;
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>Flask Modular Web App</h1>
+        <form id="userForm" onsubmit="handleSubmit(event)">
+            <label for="name">Enter your name:</label>
+            <input type="text" id="name" name="name" required>
+            <button type="submit">Submit</button>
+        </form>
+        <div id="response"></div>
+    </div>
+</body>
+</html>
