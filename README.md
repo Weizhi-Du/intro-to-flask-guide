@@ -180,12 +180,7 @@ We create a React app:
 npx create-react-app frontend
 ```
 
-
-Axios is a library for making HTTP requests. We need to ensure that Axios is correctly set up in your React app to communicate with the Flask backend:
-```
-npm install axios
-```
-The frontend Javascript and CSS code has been provided in the folder `/react`. You may copy the files to `/frontend/src` to replace the existing `App.js` and `App.css` files. Make sure that you read these files thoroughly and understand their logic. You may change the files to create your own frontend!
+A simple example of the frontend Javascript and CSS code has been provided in the folder `/react`. You may copy the files to `/frontend/src` to replace the existing `App.js` and `App.css` files. Make sure that you read these files thoroughly and understand their logic. You may change the files to create your own frontend!
 
 You may use your file manager (e.g. Finder, File Explorer) or code editor (VS Code) to replace these files. Alternatively, you can do so by using the command:
 ```
@@ -197,3 +192,72 @@ Navigate to the `frontend` folder and start the app:
 cd frontend
 npm start
 ```
+
+It may throw an error if you have not installed `axios`. It will be covered in **Step 7**.
+
+After you have installed `axios` and started the React frontend, the frontend will be hosted on `http://127.0.0.1:3000`.
+
+## Step 7: Connect the Frontend and Backend
+
+Axios is a library for making HTTP requests. We need to ensure that Axios is correctly set up in your React app to communicate with the Flask backend:
+```
+npm install axios
+```
+
+In `App.js`, we have updated the POST request URL to point to the Flask backend:
+```
+const handleSubmit = async (event) => {
+    event.preventDefault();
+    try {
+        const res = await axios.post("http://127.0.0.1:5000/api/process", { name });
+        setResponse(res.data);
+    } catch (error) {
+        console.error("Error:", error);
+    }
+};
+```
+
+For the backend, you should have configured `flask-cors` to handle requests from your React frontend in **Step 5**.
+
+Finally, let's test it out! We start the Flask backend and the React frontend:
+```
+python app.py
+```
+```
+npm start
+```
+The application will be hosted on `http://127.0.0.1:3000`.
+
+The React app should send a POST request to the Flask backend and display the processed result.
+
+## Optional: Use a Proxy for Local Development
+
+If you prefer not to deal with CORS during development, configure a proxy in React:
+
+1. Add a Proxy to `package.json`:
+```
+"proxy": "http://127.0.0.1:5000"
+```
+This tells React to forward API requests to the Flask backend automatically.
+
+2. Remove the base URL in the request in `App.js`, as React's proxy handles it:
+```
+const res = await axios.post("/api/process", { name });
+```
+3. Start the server:
+```
+npm start
+```
+
+
+## Summary
+
+This project demonstrates:
+
+- How React and Flask can work together to build a full-stack web app.
+- React handles the frontend for interactive user experiences.
+- Flask handles the backend for data processing and API support.
+
+Feel free to customize the logic in `logic.py` or extend the frontend for additional features. When deploying the app, ensure both the React frontend and Flask backend are hosted on the same domain to avoid CORS issues. You can also serve the React app directly from the Flask backend in production.
+
+Good job! You have completed this tutorial:)
