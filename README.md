@@ -16,6 +16,7 @@ This project demonstrates how to create a basic Flask web application with an HT
 Before you start, ensure you have the following installed:
 - Python (3.7 or later)
 - pip (Python package installer)
+- Node.js (for React frontend)
 
 
 ## Step 1: Install Flask
@@ -26,13 +27,13 @@ Run the following command in your terminal:
 pip install flask
 ```
 
-For reproductivity, it is recommended to Add Flask to your requirements.txt:
+(Optional) For reproductivity, it is recommended to add Flask to your requirements.txt:
 
 ```
 flask
 ```
 
-Install with:
+(Optional) Install with:
 
 ```
 pip install -r requirements.txt
@@ -69,7 +70,7 @@ intro-to-flask-guide/
 └── README.md        # Documentation
 ```
 
-# Step 3: Implement the Flask Backend
+## Step 3: Implement the Flask Backend
 
 The `app.py` file serves as the entry point for the Flask web application, handling routing and API interactions. It is recommended to create a new file and try to implement the backend with this guide on yourself. Here's a detailed explanation how to get started:
 
@@ -130,5 +131,69 @@ python app.py
 ```
 The app will be accessible at `http://127.0.0.1:5000/`.
 
-Good job! You just launched your first flask app. If you would like to learn something more and make your web application more powerful (and 10 more points for your CSE 330 creative project), let's create a full-stack web application using **React** for the frontend and **Flask** for the backend.
+Good job! You just launched your first flask app. If you would like to learn something more and make your web application more powerful (and possibly 10 points for your CSE 330 creative project), let's create a full-stack web application using **React** for the frontend and **Flask** for the backend.
 
+Assume that you have been through steps 1-4, and you may use `Control + C` to stop your application and get ready to modify your frontend and backend.
+
+## Step 5: Enable CORS in Flask
+
+Flask's default configuration does not allow requests from different origins (domains/ports). To fix this, we can use the `flask-cors` library:
+
+Install flask-cors:
+```
+pip install flask-cors
+```
+
+(Optional) For reproductivity, it is recommended to add flask-cors to your requirements.txt:
+
+```
+flask-cors
+```
+
+(Optional) Install with:
+
+```
+pip install -r requirements.txt
+```
+
+Then, you may import and use CORS to enable cross-origin requests in `app.py`:
+```
+from flask_cors import CORS
+```
+Also allow your Flask backend to handle requests from any origin, including the React frontend (running on `localhost:3000`):
+```
+CORS(app)
+```
+Remember to comment out the home route that renders the HTML template we did earlier:
+```
+# @app.route('/')
+# def home():
+#     return render_template('index.html')
+```
+
+## Step 6: Setup the React Frontend
+
+Make sure that Node.js has been installed on your end (you should have it after finishing *Module 6: Real-Time Web Applications*).
+
+We create a React app:
+```
+npx create-react-app frontend
+```
+
+
+Axios is a library for making HTTP requests. We need to ensure that Axios is correctly set up in your React app to communicate with the Flask backend:
+```
+npm install axios
+```
+The frontend Javascript and CSS code has been provided in the folder `/react`. You may copy the files to `/frontend/src` to replace the existing `App.js` and `App.css` files. Make sure that you read these files thoroughly and understand their logic. You may change the files to create your own frontend!
+
+You may use your file manager (e.g. Finder, File Explorer) or code editor (VS Code) to replace these files. Alternatively, you can do so by using the command:
+```
+mv ./react/App.js ./react/App.css ./frontend/src/
+```
+
+Navigate to the `frontend` folder and start the app:
+```
+cd frontend
+npm start
+```

@@ -2,18 +2,18 @@ from flask import Flask, render_template, request, jsonify
 from logic import process_name
 
 # Use CORS to enable cross-origin requests
-from flask_cors import CORS 
+# from flask_cors import CORS
 
 app = Flask(__name__)
 
 # Enable CORS for all routes
-CORS(app)
+# CORS(app)
 
 
 # Home route to render HTML page
-# @app.route('/')
-# def home():
-#     return render_template('index.html')
+@app.route('/')
+def home():
+    return render_template('index.html')
 
 # API route to process data using logic.py
 @app.route('/api/process', methods=['POST'])
