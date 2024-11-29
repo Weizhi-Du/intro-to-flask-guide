@@ -7,6 +7,7 @@ by Weizhi Du and Zhengyuhan Yan
 This project demonstrates how to create a basic Flask web application with an HTML/CSS frontend and Python backend. This guide demonstrates how to build a web application using Flask with the different front-end approach:
 
 - HTML/CSS and Python
+- React and Python
 
 ---
 
@@ -60,7 +61,11 @@ intro-to-flask-guide/
 ├── static/
 │   └── css/
 │       └── styles.css # CSS styling
+├── react
+│   └── App.css/     # CSS styling for React frontend
+│   └── App.js/      # Javascript for React frontend
 │── requirements.txt # Required packages
+│── .gitignore       # Files to be ignored by version control
 └── README.md        # Documentation
 ```
 
@@ -103,3 +108,27 @@ def process_data():
     result = process_name(name)
     return jsonify(result)
 ```
+- `@app.route('/api/process', methods=['POST'])`: Define a route for the /api/process endpoint, specifying that it accepts only POST requests (similar to the previous part).
+- `data = request.json`: Extract the JSON payload sent with the POST request and store it in the data variable.
+- `name = data.get('name', 'Guest')`: Retrieve the name value from the data dictionary. If no name key exists, default to `'Guest'`.
+- `result = process_name(name)`: Call the `process_name` function (imported from `logic.py`), passing the name as an argument. This function performs the main processing logic and returns a dictionary with the results.
+- `return jsonify(result)`: Convert the result dictionary into a JSON response and send it back to the frontend.
+
+5. Start the Flask development server with the debug mode enabled.
+```
+if __name__ == '__main__':
+    app.run(debug=True)
+```
+
+Now at this point, you should have your Flask backend implemented. Let's run the app locally!
+
+## Step 4: Run the Flask App
+
+Run the script to test your Flask application!
+```
+python app.py
+```
+The app will be accessible at `http://127.0.0.1:5000/`.
+
+Good job! You just launched your first flask app. If you would like to learn something more and make your web application more powerful (and 10 more points for your CSE 330 creative project), let's create a full-stack web application using **React** for the frontend and **Flask** for the backend.
+
