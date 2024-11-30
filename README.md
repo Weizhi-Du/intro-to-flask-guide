@@ -4,7 +4,7 @@ by Weizhi Du and Zhengyuhan Yan
 
 </br>
 
-This project demonstrates how to create a basic Flask web application with an HTML/CSS frontend and Python backend. This guide demonstrates how to build a web application using Flask with the different front-end approach:
+This guide demonstrates how to build a web application using Flask with the different front-end approach:
 
 - HTML/CSS and Python
 - React and Python
@@ -14,32 +14,13 @@ This project demonstrates how to create a basic Flask web application with an HT
 ## Prerequisites
 
 Before you start, ensure you have the following installed:
-- Python (3.7 or later)
+- Python (3.9 or later)
 - pip (Python package installer)
 - Node.js (for React frontend)
 
 
-## Step 1: Install Flask
 
-Run the following command in your terminal:
-
-```
-pip install flask
-```
-
-(Optional) For reproductivity, it is recommended to add Flask to your requirements.txt:
-
-```
-flask
-```
-
-(Optional) Install with:
-
-```
-pip install -r requirements.txt
-```
-
-## Step 2: Run the Application
+## Step 1: Clone the repository
 
 1. Clone the repository or copy the files into a folder.
 ```
@@ -69,6 +50,34 @@ intro-to-flask-guide/
 │── .gitignore       # Files to be ignored by version control
 └── README.md        # Documentation
 ```
+
+
+## Step 2: Install Flask
+
+(Optional) Create a virtual environment for your project:
+```
+python3 -m venv .venv
+source env/bin/activate
+```
+
+Run the following command in your terminal:
+
+```
+pip install flask
+```
+
+(Optional) For reproductivity, it is recommended to add Flask to your requirements.txt:
+
+```
+flask
+```
+
+(Optional) Install with:
+
+```
+pip install -r requirements.txt
+```
+
 
 ## Step 3: Implement the Flask Backend
 
@@ -131,7 +140,7 @@ python app.py
 ```
 The app will be accessible at `http://127.0.0.1:5000/`.
 
-Good job! You just launched your first flask app. If you would like to learn something more and make your web application more powerful (and possibly 10 points for your CSE 330 creative project), let's create a full-stack web application using **React** for the frontend and **Flask** for the backend.
+Amazing! You just launched your first flask app. If you would like to learn something more and make your web application more powerful (and possibly another framework for your CSE 330 creative project), let's create a full-stack web application using **React** for the frontend and **Flask** for the backend.
 
 Assume that you have been through steps 1-4, and you may use `Control + C` to stop your application and get ready to modify your frontend and backend.
 
@@ -173,7 +182,7 @@ Remember to comment out the home route that renders the HTML template we did ear
 
 ## Step 6: Setup the React Frontend
 
-Make sure that Node.js has been installed on your end (you should have it after finishing *Module 6: Real-Time Web Applications*).
+Make sure that Node.js has been installed on your end (you should have it after finishing *Module 6: Real-Time Web Applications* in CSE330).
 
 We create a React app:
 ```
@@ -193,7 +202,7 @@ cd frontend
 npm start
 ```
 
-It may throw an error if you have not installed `axios`. It will be covered in **Step 7**.
+It may throw an error if you have not installed `axios`, which will be covered in **Step 7**.
 
 After you have installed `axios` and started the React frontend, the frontend will be hosted on `http://127.0.0.1:3000`.
 
@@ -261,3 +270,5 @@ This project demonstrates:
 Feel free to customize the logic in `logic.py` or extend the frontend for additional features. When deploying the app, ensure both the React frontend and Flask backend are hosted on the same domain to avoid CORS issues. You can also serve the React app directly from the Flask backend in production.
 
 Good job! You have completed this tutorial:)
+
+[Flask Documentation](https://flask.palletsprojects.com/en/stable/) | [Python Documentation](https://docs.python.org/3/) | [React Documentation](https://react.dev/learn)
