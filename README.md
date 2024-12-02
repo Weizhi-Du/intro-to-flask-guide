@@ -22,12 +22,14 @@ Before you start, ensure you have the following installed:
 
 ## Step 1: Clone the repository
 
+To get started, you may clone the Github repository `https://github.com/Weizhi-Du/intro-to-flask-guide/` to your code editor (e.g. VS Code). The repository contains the necessary files for the Flask backend and the frontend.
+
 1. Clone the repository or copy the files into a folder.
 ```
 git clone https://github.com/Weizhi-Du/intro-to-flask-guide.git
 ```
 
-2. Navigate to the folder in your terminal.
+2. Navigate to the folder containing the project files.
 ```
 cd intro-to-flask-guide
 ```
@@ -36,25 +38,25 @@ cd intro-to-flask-guide
 ```
 intro-to-flask-guide/
 │
-├── app.py           # Flask application
-├── logic.py         # Contains backend logic
+├── app.py              # Flask application
+├── logic.py            # Backend logic for processing data
 ├── templates/
-│   └── index.html   # HTML frontend
+│   └── index.html      # HTML frontend
 ├── static/
 │   └── css/
-│       └── styles.css # CSS styling
-├── react
-│   └── App.css/     # CSS styling for React frontend
-│   └── App.js/      # Javascript for React frontend
-│── requirements.txt # Required packages
-│── .gitignore       # Files to be ignored by version control
-└── README.md        # Documentation
+│       └── styles.css  # CSS styling for HTML frontend
+├── react/
+│   └── App.css/        # CSS styling for React frontend
+│   └── App.js/         # Javascript for React frontend
+│── requirements.txt    # Required packages
+│── .gitignore          # Files to be ignored by version control
+└── README.md           # Documentation
 ```
 
 
 ## Step 2: Install Flask
 
-(Optional) Create a virtual environment for your project:
+(Optional) Creating virtual environments in Python helps isolate project dependencies, ensuring that each project has its own specific package versions without conflicts. Let's create a virtual environment for your project:
 ```
 python3 -m venv .venv
 source env/bin/activate
@@ -81,7 +83,7 @@ pip install -r requirements.txt
 
 ## Step 3: Implement the Flask Backend
 
-The `app.py` file serves as the entry point for the Flask web application, handling routing and API interactions. It is recommended to create a new file and try to implement the backend with this guide on yourself. Here's a detailed explanation how to get started:
+The `app.py` file serves as the entry point for the Flask web application, handling routing and API interactions. It is recommended to create a new file and try to implement the backend with this guide on yourself. Here's a detailed explanation on how to get started:
 
 1. We first need to import the `process_name` function from the `logic.py` file.
 ```
@@ -134,7 +136,7 @@ Now at this point, you should have your Flask backend implemented. Let's run the
 
 ## Step 4: Run the Flask App
 
-Run the script to test your Flask application!
+Run the script to test your Flask application:
 ```
 python app.py
 ```
@@ -145,6 +147,8 @@ Amazing! You just launched your first flask app. If you would like to learn some
 Assume that you have been through steps 1-4, and you may use `Control + C` to stop your application and get ready to modify your frontend and backend.
 
 ## Step 5: Enable CORS in Flask
+
+> The [**Flask-CORS**](https://flask-cors.readthedocs.io/en/stable/) library is an extension for Flask that allows handling Cross-Origin Resource Sharing (CORS). CORS is a mechanism that permits a web application running on one domain (frontend) to access resources from a server hosted on another domain (backend). This is crucial in a React and Flask setup because they often operate on different domains during development (e.g., React on `localhost:3000` and Flask on `localhost:5000`).
 
 Flask's default configuration does not allow requests from different origins (domains/ports). To fix this, we can use the `flask-cors` library:
 
@@ -182,7 +186,9 @@ Remember to comment out the home route that renders the HTML template we did ear
 
 ## Step 6: Setup the React Frontend
 
-Make sure that Node.js has been installed on your end (you should have it after finishing *Module 6: Real-Time Web Applications* in CSE330).
+> [**React**](https://react.dev/learn) is a JavaScript library for building dynamic, interactive user interfaces. Unlike plain HTML/CSS, React allows developers to create reusable components and manage the application's state efficiently, making it easier to build. React also uses a virtual DOM to update only the parts of the UI that change, resulting in faster performance compared to manually updating the DOM with plain HTML/CSS.
+
+Make sure that [Node.js](https://classes.engineering.wustl.edu/cse330/index.php?title=Node.JS) has been installed on your end (you should have it after finishing [*Module 6: Real-Time Web Applications*](https://classes.engineering.wustl.edu/cse330/index.php?title=Module_6) in CSE330).
 
 We create a React app:
 ```
@@ -208,7 +214,9 @@ After you have installed `axios` and started the React frontend, the frontend wi
 
 ## Step 7: Connect the Frontend and Backend
 
-Axios is a library for making HTTP requests. We need to ensure that Axios is correctly set up in your React app to communicate with the Flask backend:
+> [**Axios**](https://axios-http.com/docs/intro) is a JavaScript library used in React for making HTTP requests to APIs. It simplifies the process of sending GET, POST, PUT, and DELETE requests. When implementing a React frontend with a Flask backend, Axios is typically used to communicate between the two, enabling React to send requests to Flask APIs and receive responses efficiently.
+
+We need to ensure that Axios is correctly set up in your React app to communicate with the Flask backend:
 ```
 npm install axios
 ```
@@ -271,4 +279,8 @@ Feel free to customize the logic in `logic.py` or extend the frontend for additi
 
 Good job! You have completed this tutorial:)
 
+## Resources
+
 [Flask Documentation](https://flask.palletsprojects.com/en/stable/) | [Python Documentation](https://docs.python.org/3/) | [React Documentation](https://react.dev/learn)
+
+[Flask-CORS Documentation](https://flask-cors.readthedocs.io/en/stable/) | [Axios Documentation](https://axios-http.com/docs/intro)
