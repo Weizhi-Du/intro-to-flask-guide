@@ -22,11 +22,19 @@ Before you start, ensure you have the following installed:
 
 ## Step 1: Clone the repository
 
-To get started, you may clone the Github repository `https://github.com/Weizhi-Du/intro-to-flask-guide/` to your code editor (e.g. VS Code). The repository contains the necessary files for the Flask backend and the frontend.
+> 📚 How to fork a repository? Read this [GitHub documentation](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/fork-a-repo).
+
+To get started, please fork this Github repository:
+```
+https://github.com/Weizhi-Du/intro-to-flask-guide/
+```
+
+And clone it to your code editor (e.g. VS Code). The repository contains the necessary files for the Flask backend and the frontend.
+
 
 1. Clone the repository or copy the files into a folder.
 ```
-git clone https://github.com/Weizhi-Du/intro-to-flask-guide.git
+git clone https://github.com/[YOUR-GITHUB-USERNAME]/intro-to-flask-guide.git
 ```
 
 2. Navigate to the folder containing the project files.
@@ -142,13 +150,13 @@ python app.py
 ```
 The app will be accessible at `http://127.0.0.1:5000/`.
 
-Amazing! You just launched your first flask app. If you would like to learn something more and make your web application more powerful (and possibly another framework for your CSE 330 creative project), let's create a full-stack web application using **React** for the frontend and **Flask** for the backend.
+Amazing! You just launched your first flask app. If you would like to learn something more and make your web application more powerful (and possibly another framework for your [CSE330 Creative Project](https://classes.engineering.wustl.edu/cse330/index.php?title=Module_7)), let's create a full-stack web application using **React** for the frontend and **Flask** for the backend.
 
 Assume that you have been through steps 1-4, and you may use `Control + C` to stop your application and get ready to modify your frontend and backend.
 
 ## Step 5: Enable CORS in Flask
 
-> The [**Flask-CORS**](https://flask-cors.readthedocs.io/en/stable/) library is an extension for Flask that allows handling Cross-Origin Resource Sharing (CORS). CORS is a mechanism that permits a web application running on one domain (frontend) to access resources from a server hosted on another domain (backend). This is crucial in a React and Flask setup because they often operate on different domains during development (e.g., React on `localhost:3000` and Flask on `localhost:5000`).
+> 📚 The [**Flask-CORS**](https://flask-cors.readthedocs.io/en/stable/) library is an extension for Flask that allows handling Cross-Origin Resource Sharing (CORS). CORS is a mechanism that permits a web application running on one domain (frontend) to access resources from a server hosted on another domain (backend). This is crucial in a React and Flask setup because they often operate on different domains during development (e.g. React on `localhost:3000` and Flask on `localhost:5000`).
 
 Flask's default configuration does not allow requests from different origins (domains/ports). To fix this, we can use the `flask-cors` library:
 
@@ -186,7 +194,7 @@ Remember to comment out the home route that renders the HTML template we did ear
 
 ## Step 6: Setup the React Frontend
 
-> [**React**](https://react.dev/learn) is a JavaScript library for building dynamic, interactive user interfaces. Unlike plain HTML/CSS, React allows developers to create reusable components and manage the application's state efficiently, making it easier to build. React also uses a virtual DOM to update only the parts of the UI that change, resulting in faster performance compared to manually updating the DOM with plain HTML/CSS.
+> 📚 [**React**](https://react.dev/learn) is a JavaScript library for building dynamic, interactive user interfaces. Unlike plain HTML/CSS, React allows developers to create reusable components and manage the application's state efficiently, making it easier to build. React also uses a virtual DOM to update only the parts of the UI that change, resulting in faster performance compared to manually updating the DOM with plain HTML/CSS.
 
 Make sure that [Node.js](https://classes.engineering.wustl.edu/cse330/index.php?title=Node.JS) has been installed on your end (you should have it after finishing [*Module 6: Real-Time Web Applications*](https://classes.engineering.wustl.edu/cse330/index.php?title=Module_6) in CSE330).
 
@@ -214,7 +222,7 @@ After you have installed `axios` and started the React frontend, the frontend wi
 
 ## Step 7: Connect the Frontend and Backend
 
-> [**Axios**](https://axios-http.com/docs/intro) is a JavaScript library used in React for making HTTP requests to APIs. It simplifies the process of sending GET, POST, PUT, and DELETE requests. When implementing a React frontend with a Flask backend, Axios is typically used to communicate between the two, enabling React to send requests to Flask APIs and receive responses efficiently.
+> 📚 [**Axios**](https://axios-http.com/docs/intro) is a JavaScript library used in React for making HTTP requests to APIs. It simplifies the process of sending GET, POST, PUT, and DELETE requests. When implementing a React frontend with a Flask backend, Axios is typically used to communicate between the two, enabling React to send requests to Flask APIs and receive responses efficiently.
 
 We need to ensure that Axios is correctly set up in your React app to communicate with the Flask backend:
 ```
