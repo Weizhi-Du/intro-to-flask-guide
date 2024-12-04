@@ -24,25 +24,22 @@ Before you start, ensure you have the following installed:
 
 > 📚 How to fork a repository? Read this [GitHub documentation](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/fork-a-repo).
 
-To get started, please fork this Github repository:
+1. To get started, please fork this GitHub repository:
 ```
 https://github.com/Weizhi-Du/intro-to-flask-guide/
 ```
 
-And clone it to your code editor (e.g. VS Code). The repository contains the necessary files for the Flask backend and the frontend.
-
-
-1. Clone the repository or copy the files into a folder.
+2. Clone it to your code editor (e.g. VS Code). The repository contains the necessary files for the Flask backend and the frontend.
 ```
 git clone https://github.com/[YOUR-GITHUB-USERNAME]/intro-to-flask-guide.git
 ```
 
-2. Navigate to the folder containing the project files.
+3. Navigate to the folder containing the project files.
 ```
 cd intro-to-flask-guide
 ```
 
-3. Please read the flask project structure below. We have created an HTML template in `templates/index.html` serving as the frontend and added CSS styling to `static/css/styles.css`. We also implemented the backend logic in `logic.py` to be served by the Flask Application.
+4. Please read the flask project structure below. We have created an HTML template in `templates/index.html` serving as the frontend and added CSS styling to `static/css/styles.css`. We also implemented the backend logic in `logic.py` to be served by the Flask Application.
 ```
 intro-to-flask-guide/
 │
@@ -91,7 +88,7 @@ pip install -r requirements.txt
 
 ## Step 3: Implement the Flask Backend
 
-The `app.py` file serves as the entry point for the Flask web application, handling routing and API interactions. It is recommended to create a new file and try to implement the backend with this guide on yourself. Here's a detailed explanation on how to get started:
+The `app.py` file serves as the entry point for the Flask web application, handling routing and API interactions. It is recommended to create a new file and try to implement the backend with this guide yourself. Here's a detailed explanation of how to get started:
 
 1. We first need to import the `process_name` function from the `logic.py` file.
 ```
